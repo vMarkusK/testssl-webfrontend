@@ -15,16 +15,16 @@ MAINTAINER Markus Kraus
 # Update the sources list
 RUN apt-get update
 
-# Install basic applications
-RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential
+# Install git
+RUN apt-get install -y git
 
 # Install Python
-RUN apt-get install -y python3
+RUN apt-get install -y python3 python3-pip
 
 # Add Python module Flask
 RUN pip3 install flask
 
-# Install 
+# Install aha
 RUN apt-get install -y aha
 
 # Clone Git Repo
