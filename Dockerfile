@@ -50,4 +50,4 @@ EXPOSE 80
 WORKDIR /testssl
 
 # Set the default command to execute    
-CMD python SSLTestPortal.py
+CMD python3 SSLTestPortal.py
