@@ -5,13 +5,16 @@
 
 # Set the base image to Ubuntu
 #FROM ubuntu
-FROM alpine
+FROM alpine:3.5
 
-# Update
-RUN apk add --update python py-pip
+RUN apk add --no-cache python3 && \
+    python3 -m ensurepip && \
+    rm -r /usr/lib/python*/ensurepip && \
+    pip3 install --upgrade pip setuptools && \
+    rm -r /root/.cache
 
 # Install app dependencies
-RUN pip install Flask
+RUN pip3 install Flask
 
 # File Author / Maintainer
 MAINTAINER Markus Kraus
