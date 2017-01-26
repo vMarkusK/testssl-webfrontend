@@ -5,7 +5,13 @@
 
 # Set the base image to Ubuntu
 #FROM ubuntu
-FROM FROM jfloff/alpine-python:latest-onbuild
+FROM alpine
+
+# Update
+RUN apk add --update python py-pip
+
+# Install app dependencies
+RUN pip install Flask
 
 # File Author / Maintainer
 MAINTAINER Markus Kraus
