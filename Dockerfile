@@ -22,6 +22,7 @@ MAINTAINER Markus Kraus
 
 # Copy the application folder inside the container
 ADD ./testssl.sh-webfrontend/ /testssl
+COPY "./testssl.sh-webfrontend/templates/*.html" /testssl
 
 # Expose ports
 EXPOSE 5000
