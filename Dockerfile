@@ -7,13 +7,15 @@
 #FROM ubuntu
 FROM alpine:3.5
 
-# Install python3 and aha
+# Install python3
 RUN apk add --no-cache python3 && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
     pip3 install --upgrade pip setuptools && \
-    aha && \
     rm -r /root/.cache
+
+# Install aha
+RUN apk add --no-cache aha
 
 # Install Flask
 RUN pip3 install Flask
