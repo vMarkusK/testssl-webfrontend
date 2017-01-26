@@ -1,0 +1,3 @@
+[submodule "testssl.sh-webfrontend"]
+	path = testssl.sh-webfrontend
+	url = https://github.com/mycloudrevolution/testssl.sh-webfrontend.git

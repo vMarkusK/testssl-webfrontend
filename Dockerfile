@@ -28,10 +28,10 @@ RUN pip3 install flask
 RUN apt-get install -y aha
 
 # Clone Git Repo
-RUN git clone https://github.com/mycloudrevolution/testssl.sh-webfrontend.git
+#RUN git clone https://github.com/mycloudrevolution/testssl.sh-webfrontend.git
 
 # Copy the application folder inside the container
-ADD /testssl.sh-webfrontend/ /testssl
+ADD ./testssl.sh-webfrontend/ /testssl
 
 # Expose ports
 EXPOSE 80
