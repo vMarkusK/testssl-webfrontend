@@ -5,7 +5,7 @@
 
 # Set the base image to Ubuntu
 #FROM ubuntu
-FROM FROM jfloff/alpine-python:3.4-onbuild
+FROM FROM jfloff/alpine-python:latest-onbuild
 
 # File Author / Maintainer
 MAINTAINER Markus Kraus
