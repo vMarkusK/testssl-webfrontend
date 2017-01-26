@@ -4,28 +4,29 @@
 ############################################################
 
 # Set the base image to Ubuntu
-FROM ubuntu
+#FROM ubuntu
+FROM jfloff/alpine-python:latest
 
 # File Author / Maintainer
 MAINTAINER Markus Kraus
 
 # Add the application resources URL
-# RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
+#RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
 
 # Update the sources list
-RUN apt-get update
+#RUN apt-get update
 
 # Install git
-RUN apt-get install -y git
+#RUN apt-get install -y git
 
 # Install Python
-RUN apt-get install -y python3 python3-pip
+#RUN apt-get install -y python3 python3-pip
 
 # Add Python module Flask
-RUN pip3 install flask
+#RUN pip3 install flask
 
 # Install aha
-RUN apt-get install -y aha
+#RUN apt-get install -y aha
 
 # Clone Git Repo
 #RUN git clone https://github.com/mycloudrevolution/testssl.sh-webfrontend.git
