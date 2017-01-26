@@ -10,7 +10,7 @@ FROM ubuntu
 MAINTAINER Markus Kraus
 
 # Add the application resources URL
-RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
+# RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
 
 # Update the sources list
 RUN apt-get update
@@ -31,7 +31,7 @@ RUN apt-get install -y aha
 RUN git clone https://github.com/mycloudrevolution/testssl.sh-webfrontend.git
 
 # Copy the application folder inside the container
-ADD / /testssl
+ADD /testssl.sh-webfrontend/ /testssl
 
 # Expose ports
 EXPOSE 80
