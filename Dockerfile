@@ -5,15 +5,25 @@
 
 # Set the base image to Ubuntu
 #FROM ubuntu
-FROM alpine:3.5
+#FROM alpine:3.5
+FROM ubuntu:16.10
+ENV DEBIAN_FRONTEND noninteractive
 
 # Install Packages
-RUN apk add --no-cache aha python3 && \
-    python3 -m ensurepip && \
-    rm -r /usr/lib/python*/ensurepip && \
-    pip3 install --upgrade pip setuptools && \
+RUN apt-get -qq update --fix-missing && \
+	apt-get --no-install-recommends -y install \
+	aha python3 python3-pip openssl && \
     pip3 install Flask && \
-    rm -r /root/.cache
+	apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+
+# Install Packages
+#RUN apk add --no-cache aha python3 && \
+#    python3 -m ensurepip && \
+#    rm -r /usr/lib/python*/ensurepip && \
+#    pip3 install --upgrade pip setuptools && \
+#    pip3 install Flask && \
+#    rm -r /root/.cache
 
 # File Author / Maintainer
 MAINTAINER Markus Kraus
