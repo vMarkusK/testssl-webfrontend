@@ -4,10 +4,12 @@
 ############################################################
 
 # Set the base image to Ubuntu
-#FROM ubuntu
 #FROM alpine:3.5
 FROM ubuntu:16.10
 ENV DEBIAN_FRONTEND noninteractive
+
+# File Author / Maintainer
+MAINTAINER Markus Kraus
 
 # Install Packages
 RUN apt-get -qq update --fix-missing && \
@@ -16,7 +18,6 @@ RUN apt-get -qq update --fix-missing && \
     pip3 install Flask && \
 	apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-
 # Install Packages
 #RUN apk add --no-cache aha python3 && \
 #    python3 -m ensurepip && \
@@ -24,9 +25,6 @@ RUN apt-get -qq update --fix-missing && \
 #    pip3 install --upgrade pip setuptools && \
 #    pip3 install Flask && \
 #    rm -r /root/.cache
-
-# File Author / Maintainer
-MAINTAINER Markus Kraus
 
 # Copy the application folder inside the container
 ADD ./testssl.sh-webfrontend/ /testssl
