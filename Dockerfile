@@ -7,7 +7,7 @@
 #FROM ubuntu
 FROM alpine:3.5
 
-# Install packages
+# Install Packages
 RUN apk add --no-cache aha python3 && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
@@ -36,4 +36,4 @@ WORKDIR /testssl
 
 # Set the default command to execute    
 #CMD python3 SSLTestPortal.py
-ENTRYPOINT ["python3 SSLTestPortal.py"]
+CMD python3 SSLTestPortal.py
