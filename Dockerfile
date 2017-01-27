@@ -27,7 +27,8 @@ COPY "./testssl.sh-webfrontend/templates/*.html" /testssl/
 RUN mkdir /testssl/log
 
 # Create Result folder
-RUN mkdir /testssl/result
+RUN mkdir -p /testssl/result/json
+RUN mkdir -p /testssl/result/html
 
 # Expose ports
 EXPOSE 5000
