@@ -8,7 +8,7 @@
 FROM alpine:3.5
 
 # Install python3 and aha
-RUN apk add aha python3 python3-pip
+RUN apk add --no-cache aha python3 python3-pip
 
 # Install Flask
 RUN pip3 install Flask
