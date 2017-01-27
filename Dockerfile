@@ -7,11 +7,13 @@
 #FROM ubuntu
 FROM alpine:3.5
 
-# Install python3 and aha
-RUN apk add --no-cache aha python3 pip3
-
-# Install Flask
-RUN pip3 install Flask
+# Install packages
+RUN apk add --no-cache aha python3 && \
+    python3 -m ensurepip && \
+    rm -r /usr/lib/python*/ensurepip && \
+    pip3 install --upgrade pip setuptools && \
+    pip3 install Flask && \
+    rm -r /root/.cache
 
 # File Author / Maintainer
 MAINTAINER Markus Kraus
@@ -33,4 +35,5 @@ EXPOSE 5000
 WORKDIR /testssl
 
 # Set the default command to execute    
-CMD python3 SSLTestPortal.py
+#CMD python3 SSLTestPortal.py
+ENTRYPOINT ["python3 SSLTestPortal.py"]
