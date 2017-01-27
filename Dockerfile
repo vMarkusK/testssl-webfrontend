@@ -35,5 +35,4 @@ EXPOSE 5000
 WORKDIR /testssl
 
 # Set the default command to execute    
-#CMD python3 SSLTestPortal.py
 CMD python3 SSLTestPortal.py
