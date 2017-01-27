@@ -11,7 +11,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # Install Packages
 RUN apt-get -qq update --fix-missing && \
-	apt-get --no-install-recommends -y install openssl aha python3 python3-pip && \
+	apt-get --no-install-recommends -y install openssl net-tools dnsutils aha python3 python3-pip && \
     pip3 install --upgrade pip setuptools && \
     pip3 install Flask && \
 	apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
