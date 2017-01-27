@@ -7,21 +7,17 @@
 #FROM ubuntu
 FROM alpine:3.5
 
-# Install python3, flask and aha
-RUN apk add --no-cache aha python3 && \
-    python3 -m ensurepip && \
-    rm -r /usr/lib/python*/ensurepip && \
-    pip3 install --upgrade pip setuptools && \
-    pip3 install Flask && \
-    rm -r /root/.cache
+# Install python3 and aha
+RUN apk add aha python3 python3-pip
 
+# Install Flask
+RUN pip3 install Flask
 
 # File Author / Maintainer
 MAINTAINER Markus Kraus
 
 # Copy the application folder inside the container
 ADD ./testssl.sh-webfrontend/ /testssl
-COPY "./testssl.sh-webfrontend/templates/*.html" /testssl/
 
 # Create Log folder
 RUN mkdir /testssl/log
